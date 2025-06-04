@@ -1,7 +1,5 @@
 CREATE SCHEMA fitness_center;
 
--- Anna Khytrych
-
 CREATE TABLE fitness_center.members (
   member_id SERIAL PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
@@ -28,13 +26,13 @@ CREATE TABLE fitness_center.member_subscriptions (
 
 CREATE TABLE fitness_center.freezes (
   freeze_id SERIAL PRIMARY KEY,
-  member_subscriptions_id BIGINT,
+  member_subscriptions_id INTEGER,
   duration_days INTEGER DEFAULT 7 CHECK (duration_days > 0),
   is_active BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE fitness_center.attendance (
-  attendance_id SERIAL PRIMARY KEY,
+  attendance_id BIGSERIAL PRIMARY KEY,
   member_id BIGINT NOT NULL,
   attendance_date TIMESTAMP NOT NULL
 );
@@ -53,4 +51,3 @@ ON fitness_center.attendance(member_id);
 
 CREATE INDEX idx_subscriptions_member
 ON fitness_center.member_subscriptions(member_id);
-
