@@ -41,3 +41,10 @@ ALTER TABLE fitness_center.attendance ADD FOREIGN KEY (member_id) REFERENCES fit
 ALTER TABLE fitness_center.freezes ADD FOREIGN KEY (member_subscriptions_id) REFERENCES fitness_center.member_subscriptions(member_subscriptions_id);
 ALTER TABLE fitness_center.member_subscriptions ADD FOREIGN KEY (member_id) REFERENCES fitness_center.members(member_id);
 ALTER TABLE fitness_center.member_subscriptions ADD FOREIGN KEY (membership_id) REFERENCES fitness_center.memberships(membership_id);
+
+CREATE INDEX idx_attendance_member
+ON fitness_center.attendance(member_id);
+
+CREATE INDEX idx_subscriptions_member
+ON fitness_center.member_subscriptions(member_id);
+
