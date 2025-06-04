@@ -1,5 +1,7 @@
 CREATE SCHEMA fitness_center;
 
+-- Anna Khytrych
+
 CREATE TABLE fitness_center.members (
   member_id BIGSERIAL PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
