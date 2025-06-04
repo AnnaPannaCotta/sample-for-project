@@ -3,7 +3,7 @@ CREATE SCHEMA fitness_center;
 -- Anna Khytrych
 
 CREATE TABLE fitness_center.members (
-  member_id INTEGER PRIMARY KEY,
+  member_id SERIAL PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   phone INTEGER UNIQUE NOT NULL,
@@ -11,15 +11,15 @@ CREATE TABLE fitness_center.members (
 );
 
 CREATE TABLE fitness_center.memberships (
-  membership_id INTEGER PRIMARY KEY,
+  membership_id SERIAL PRIMARY KEY,
   type_name VARCHAR(50) NOT NULL,
   duration INTEGER NOT NULL,
   price DECIMAL(8,2)
 );
 
 CREATE TABLE fitness_center.member_subscriptions (
-  member_subscriptions_id BIGSERIAL PRIMARY KEY,
-  member_id BIGINT NOT NULL,
+  member_subscriptions_id SERIAL PRIMARY KEY,
+  member_id INTEGER NOT NULL,
   membership_id INTEGER NOT NULL,
   start_date TIMESTAMP NOT NULL,
   end_date TIMESTAMP NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE fitness_center.freezes (
 );
 
 CREATE TABLE fitness_center.attendance (
-  attendance_id BIGSERIAL PRIMARY KEY,
+  attendance_id SERIAL PRIMARY KEY,
   member_id BIGINT NOT NULL,
   attendance_date TIMESTAMP NOT NULL
 );
